@@ -8,7 +8,7 @@ public class death : MonoBehaviour
     GameObject border;
     public AudioClip deathSound;
     public AudioSource source;
-    public player script;
+    player script;
     // Start is called before the first frame update
     void Start()
     {
