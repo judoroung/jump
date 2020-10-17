@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public class death : MonoBehaviour
 {
     GameObject border;
+    public AudioClip deathSound;
+    public AudioSource source;
+    player script;
     // Start is called before the first frame update
     void Start()
     {
         border = GameObject.FindGameObjectWithTag("death");
+        script = GetComponent<player>();
     }
 
     // Update is called once per frame
@@ -20,7 +24,15 @@ public class death : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject == border) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine(deathSoundCou());
+            
         }
+    }
+    IEnumerator deathSoundCou() {
+        source.clip = deathSound;
+        source.Play();
+        script.enabled = false;
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
