@@ -295,7 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd40d2d2447aa54fa871f3ab49c1d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 3
+  dashSpeed: 6
+  startDashTime: 5
 --- !u!114 &2153053500477081000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 8300000, guid: d09a84e974a46f244b7d1e2550444d19, type: 3}
   source: {fileID: 4551587380936235784}
-  script: {fileID: 0}
 --- !u!114 &2153053500477081001
 MonoBehaviour:
   m_ObjectHideFlags: 0

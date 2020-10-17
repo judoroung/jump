@@ -8,7 +8,7 @@ public class dash : MonoBehaviour
     private Rigidbody2D rb;
     public float dashSpeed;
     private float dashTime;
-    private float startDashTime;
+    public float startDashTime;
     private int direction;
 
     public float StartDashTime { get => startDashTime; set => startDashTime = value; }
