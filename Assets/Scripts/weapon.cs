@@ -20,9 +20,10 @@ public class weapon : MonoBehaviour
             StartCoroutine(Shoot());
             leftShots--;
         }
-        else if (leftShots == 0){
+        if ((leftShots == 0 && Input.GetButton("Fire1")) || Input.GetButtonDown("Fire3")){
             StartCoroutine( reload());
         }
+        
     }
 
     IEnumerator Shoot() {
@@ -41,7 +42,7 @@ public class weapon : MonoBehaviour
         }
         else{
             lineRender.SetPosition(0, firePoint.position);
-            lineRender.SetPosition(0, firePoint.position + firePoint.right*1000);
+            lineRender.SetPosition(1, firePoint.position + firePoint.right * 1000);
         }
         lineRender.enabled = true;
         yield return new WaitForSeconds(0.1f);

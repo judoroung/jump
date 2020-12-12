@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level7.unity
     guid: 5516d41fdc629498ea759ddbd26d3d72
   - enabled: 1
+    path: Assets/Scenes/BOSS.unity
+    guid: a56946c382515c14ea84add075177029
+  - enabled: 1
     path: Assets/Scenes/youWin.unity
     guid: ef5c84ee401c41b44860e94c9b761f86
   - enabled: 1
