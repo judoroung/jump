@@ -18,7 +18,7 @@ public class weapon : MonoBehaviour
     void Update()
     {
         if (Input.GetButton("Fire1") && leftShots > 0) {
-            StartCoroutine(Shoot());
+            Shoot();
             leftShots--;
         }
         if ((leftShots == 0 && Input.GetButton("Fire1")) || Input.GetButtonDown("Fire3")){
@@ -27,7 +27,7 @@ public class weapon : MonoBehaviour
         
     }
 
-    IEnumerator Shoot() {
+    void Shoot() {
         RaycastHit2D hitInfo =  Physics2D.Raycast(firePoint.position, firePoint.right);
         if (hitInfo) {
             Enemy enemy = hitInfo.transform.GetComponent<Enemy>();
@@ -42,20 +42,12 @@ public class weapon : MonoBehaviour
             lineRender.SetPosition(1, hitInfo.transform.localPosition);
         }
         else{
-<<<<<<< Updated upstream
             lineRender.SetPosition(0, firePoint.localPosition);
             lineRender.SetPosition(1, firePoint.position + firePoint.right * 1000);
-=======
             lineRender.SetPosition(0, firePoint.position);
-            lineRender.SetPosition(1, firePoint.position + firePoint.right * 10000000000000000000000000000000);
->>>>>>> Stashed changes
+            lineRender.SetPosition(1, firePoint.position + firePoint.right * 1000000);
         }
-        lineRender.enabled = true;
-        Vector3 original = transform.position ;
-        transform.position += new Vector3(-0.01f, 0, 0);
-        yield return new WaitForSeconds(0.1f);
-        lineRender.enabled = false;
-        transform.position += new Vector3(0.01f, 0, 0);
+        
     }
     void Die(){
         Destroy(gameObject);
