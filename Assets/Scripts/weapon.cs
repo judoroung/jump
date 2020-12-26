@@ -42,8 +42,13 @@ public class weapon : MonoBehaviour
             lineRender.SetPosition(1, hitInfo.transform.localPosition);
         }
         else{
+<<<<<<< Updated upstream
             lineRender.SetPosition(0, firePoint.localPosition);
             lineRender.SetPosition(1, firePoint.position + firePoint.right * 1000);
+=======
+            lineRender.SetPosition(0, firePoint.position);
+            lineRender.SetPosition(1, firePoint.position + firePoint.right * 10000000000000000000000000000000);
+>>>>>>> Stashed changes
         }
         lineRender.enabled = true;
         Vector3 original = transform.position ;
