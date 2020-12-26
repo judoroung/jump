@@ -8,10 +8,11 @@ public class weapon : MonoBehaviour
     public int damage = 10;
     public int maxShots = 10;
     private int leftShots;
-    public LineRenderer lineRender;
+    LineRenderer lineRender;
     // Start is called before the first frame update
     void Start(){
         leftShots = maxShots;
+        lineRender = gameObject.GetComponentInParent<GunHolder>().linerenderer;
     }
     // Update is called once per frame
     void Update()
@@ -37,16 +38,19 @@ public class weapon : MonoBehaviour
                     enemy.die();
                 }
             }
-            lineRender.SetPosition(0, firePoint.position);
-            lineRender.SetPosition(1, hitInfo.point);
+            lineRender.SetPosition(0, firePoint.localPosition);
+            lineRender.SetPosition(1, hitInfo.transform.localPosition);
         }
         else{
-            lineRender.SetPosition(0, firePoint.position);
+            lineRender.SetPosition(0, firePoint.localPosition);
             lineRender.SetPosition(1, firePoint.position + firePoint.right * 1000);
         }
         lineRender.enabled = true;
+        Vector3 original = transform.position ;
+        transform.position += new Vector3(-0.01f, 0, 0);
         yield return new WaitForSeconds(0.1f);
         lineRender.enabled = false;
+        transform.position += new Vector3(0.01f, 0, 0);
     }
     void Die(){
         Destroy(gameObject);
